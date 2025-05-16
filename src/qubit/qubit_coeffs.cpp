@@ -6,6 +6,11 @@
 
 namespace lambdaq::qubit {
 
+QubitCoeffs::QubitCoeffs()
+    : coeff_zero(1.0, 0.0), coeff_one(0.0, 0.0) {
+    // Default constructor initializes to |0> state
+}
+
 QubitCoeffs::QubitCoeffs(std::complex<double> coeff_zero, std::complex<double> coeff_one)
     : coeff_zero(coeff_zero), coeff_one(coeff_one) {
     // Ensure the coefficients are normalized

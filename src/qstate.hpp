@@ -16,7 +16,7 @@ class QState {
 public:
     virtual ~QState() = default;
 
-    virtual Qubit& operator[](std::size_t index) = 0;
+    virtual std::shared_ptr<Qubit> operator[](std::size_t index) = 0;
 
     virtual std::array<bool, N> collapse() = 0;
 
@@ -26,13 +26,6 @@ public:
 
     static constexpr std::size_t size = N;
 };
-
-namespace qstate {
-
-template <std::size_t N>
-std::shared_ptr<const QState<N>> createQStateVector();
-
-} // namespace qstate
 
 } // namespace lambdaq
 

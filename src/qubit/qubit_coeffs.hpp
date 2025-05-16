@@ -12,6 +12,7 @@ namespace lambdaq::qubit {
 class QubitCoeffs : public lambdaq::Qubit {
 
 public:
+    QubitCoeffs();
     QubitCoeffs(std::complex<double> coeff_zero, std::complex<double> coeff_one);
     virtual ~QubitCoeffs() = default;
 
