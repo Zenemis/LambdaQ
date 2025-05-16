@@ -6,8 +6,9 @@
 
 namespace lambdaq::qstate {
 
-std::shared_ptr<const QState> createQStateVector(std::size_t num_qubits) {
-    return std::make_shared<const QStateVector>(num_qubits);
+template <std::size_t N>
+std::shared_ptr<const QState<N>> createQStateVector() {
+    return std::make_shared<const QStateVector<N>>();
 }
 
 

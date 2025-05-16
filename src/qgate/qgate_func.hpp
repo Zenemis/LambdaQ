@@ -6,12 +6,23 @@
 
 namespace func {
 
-std::shared_ptr<lambdaq::QState> x(std::shared_ptr<const lambdaq::QState> qstate);
-std::shared_ptr<lambdaq::QState> y(std::shared_ptr<const lambdaq::QState> qstate);
-std::shared_ptr<lambdaq::QState> z(std::shared_ptr<const lambdaq::QState> qstate);
-std::shared_ptr<lambdaq::QState> h(std::shared_ptr<const lambdaq::QState> qstate);
-std::shared_ptr<lambdaq::QState> s(std::shared_ptr<const lambdaq::QState> qstate);
-std::shared_ptr<lambdaq::QState> t(std::shared_ptr<const lambdaq::QState> qstate);
+template <std::size_t N>
+std::shared_ptr<lambdaq::QState<N>> x(std::shared_ptr<const lambdaq::QState<N>> qstate);
+
+template <std::size_t N>
+std::shared_ptr<lambdaq::QState<N>> y(std::shared_ptr<const lambdaq::QState<N>> qstate);
+
+template <std::size_t N>
+std::shared_ptr<lambdaq::QState<N>> z(std::shared_ptr<const lambdaq::QState<N>> qstate);
+
+template <std::size_t N>
+std::shared_ptr<lambdaq::QState<N>> h(std::shared_ptr<const lambdaq::QState<N>> qstate);
+
+template <std::size_t N>
+std::shared_ptr<lambdaq::QState<N>> s(std::shared_ptr<const lambdaq::QState<N>> qstate);
+
+template <std::size_t N>
+std::shared_ptr<lambdaq::QState<N>> t(std::shared_ptr<const lambdaq::QState<N>> qstate);
 
 } // namespace func
 

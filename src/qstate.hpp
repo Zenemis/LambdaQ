@@ -2,31 +2,35 @@
 #define QSTATE_HPP
 
 #include <memory>
-
 #include <cstddef>
 #include <vector>
 #include <string>
+#include <array>
 
 #include "qubit.hpp"
 
 namespace lambdaq {
 
+template <std::size_t N>
 class QState {
 public:
     virtual ~QState() = default;
 
     virtual Qubit& operator[](std::size_t index) = 0;
-    
-    virtual std::vector<bool> collapse() = 0;
+
+    virtual std::array<bool, N> collapse() = 0;
 
     virtual explicit operator std::string() const {
         return "QState";
     }
+
+    static constexpr std::size_t size = N;
 };
 
 namespace qstate {
 
-std::shared_ptr<const QState> createQStateVector(std::size_t num_qubits);
+template <std::size_t N>
+std::shared_ptr<const QState<N>> createQStateVector();
 
 } // namespace qstate
 

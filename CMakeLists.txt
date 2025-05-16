@@ -10,6 +10,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Include directories
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
+# Find Eigen3
+find_package(Eigen3 REQUIRED)
+
 # Source files
 file(GLOB_RECURSE SOURCES
     ${PROJECT_SOURCE_DIR}/src/*.cpp
@@ -18,6 +21,9 @@ file(GLOB_RECURSE SOURCES
 
 # Executable target
 add_executable(LambdaQ ${SOURCES})
+
+# Link Eigen3 to the target
+target_link_libraries(LambdaQ PRIVATE Eigen3::Eigen)
 
 # Set runtime output directory inside the build directory
 set_target_properties(LambdaQ PROPERTIES
