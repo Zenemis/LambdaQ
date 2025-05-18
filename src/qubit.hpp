@@ -24,7 +24,6 @@ public:
     virtual double getPhase() const = 0;
 
     virtual const std::shared_ptr<lambdaq::structs::BlochSphere> getBlochSphere() const = 0;
-    
 };
 
 } // namespace lambdaq

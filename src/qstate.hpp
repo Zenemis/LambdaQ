@@ -7,6 +7,8 @@
 #include <string>
 #include <array>
 
+#include <qgate/qgate_class.hpp>
+
 #include "qubit.hpp"
 
 namespace lambdaq {

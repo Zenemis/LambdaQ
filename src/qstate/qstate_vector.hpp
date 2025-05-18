@@ -17,8 +17,12 @@ namespace lambdaq::qstate {
 template <std::size_t N>
 class QStateVector : public QState<N> {
 public:
-    QStateVector() : qubits(Eigen::Array<std::complex<float>, (1 << N), 1>::Zero()) {
-        
+    QStateVector() : qubits(Eigen::Matrix<std::complex<float>, (1 << N), 1>::Zero()) {}
+
+    QStateVector(const Eigen::Matrix<std::complex<float>, (1 << N), 1>& qubits) : qubits(qubits) {
+        if (qubits.norm() == 0) {
+            throw std::invalid_argument("Qubit state cannot be zero.");
+        }
     }
 
     virtual std::shared_ptr<Qubit> operator[](std::size_t index) override {
@@ -38,7 +42,7 @@ public:
     }
 
 private:
-    Eigen::Array<std::complex<float>, (1 << N), 1> qubits;
+    Eigen::Matrix<std::complex<float>, (1 << N), 1> qubits;
 };
 
 } // namespace lambdaq::qstate
